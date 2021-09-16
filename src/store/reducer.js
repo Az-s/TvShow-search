@@ -1,23 +1,21 @@
 import {
-    FETCH_SHOW_REQUEST,
-    FETCH_SHOW_SUCCESS,
+    SHOW_SEARCH,
+    SHOW_INFO,
     FETCH_SHOW_FAILURE,
 } from "./actions";
 
 const initialState = {
-    fetchShowLoading: false,
     shows: [],
     text: '',
+    showInfo: null,
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case FETCH_SHOW_REQUEST:
+      case SHOW_SEARCH:
         return {...state, fetchShowLoading: true};
-      case FETCH_SHOW_SUCCESS:
+      case SHOW_INFO:
         return {...state, fetchShowLoading: false, shows: action.payload};
-      case FETCH_SHOW_FAILURE:
-        return {...state, fetchShowLoading: false};
       default:
         return state;
     }
